@@ -1,0 +1,137 @@
+<!--Login Page Starts-->
+<section id="login" class="bg-admin">
+    <div class="container-fluid">
+        <div class="row full-height-vh">
+            <div class="col-12 d-flex align-items-center justify-content-center">
+              <div class="card" *ngIf="loginForm">
+                <div class="card-body">
+                  <div class="row d-flex">
+                    <div class="col-12 col-sm-12 col-md-6 gradient-deep-orange-orange" style="padding: 100px;">
+                      <div class="card-block">
+                        <h2 class="card-title font-large-1 text-center white mt-3">Inloggen</h2>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 d-flex align-items-center">
+                      <div class="card-block mx-auto">
+                        <form #loginForm="ngForm" (ngSubmit)="doLogin(loginForm.value, loginForm.valid)" novalidate>
+                          <p>Login met je gebruikersnaam en wachtwoord.</p>
+                          <div class="form-group">
+                            <div class="col-md-12">
+                              <input type="text" class="form-control" id="username" placeholder="Gebruikersnaam" required name="username" [(ngModel)]="auth.username" #authUsername="ngModel" [ngClass]="authUsername.valid || authUsername.pristine ? (loginError ? 'is-invalid' : '') : 'is-invalid'">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-md-12">
+                              <input type="password" class="form-control" id="password" placeholder="Wachtwoord" required minlength="6" name="authPassword" [(ngModel)]="auth.password" #authPassword="ngModel" [ngClass]="authPassword.valid || authPassword.pristine ? (loginError ? 'is-invalid' : '') : 'is-invalid'">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-md-12">
+                              <button type="submit" class="btn btn-green btn-block btn-raised" [disabled]="!loginForm.valid" [ngClass]="loading ? 'has-icon-right' : ''">
+                                <span>Inloggen</span>
+                                <i *ngIf="loading" class="ft-loader spinner"></i>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div *ngIf="loginForm">
+                              <a (click)="register()">Nog geen account?</a>
+                            </div>
+                            <div *ngIf="registerForm">
+                              <a (click)="login()">Terug naar inloggen</a>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card" *ngIf="registerForm">
+                <div class="card-body">
+                  <div class="row d-flex">
+                    <div class="col-12 col-sm-12 col-md-6 gradient-deep-orange-orange" style="padding: 100px;">
+                      <div class="card-block">
+                        <h2 class="card-title font-large-1 text-center white mt-3">Registreren</h2>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 d-flex align-items-center" style="padding: 100px 50px;">
+                      <div class="card-block mx-auto">
+                        <form [formGroup]="registerUserForm" (ngSubmit)="submitForm(registerUserForm)">
+                          <p>Registreer een nieuw account!</p>
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                  <i class="icon-user"></i>
+                              </span>
+                            </div>
+                            <input type="text" name="username" formControlName="username" autocomplete="off" [(ngModel)]="registerUser.username" class="form-control" placeholder="Username">
+                          </div>
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                  <i class="icon-user"></i>
+                              </span>
+                            </div>
+                            <input type="text" name="firstname" formControlName="firstname" autocomplete="off" [(ngModel)]="registerUser.firstname" class="form-control" placeholder="Voornaam">
+                          </div>
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                  <i class="icon-user"></i>
+                              </span>
+                            </div>
+                            <input type="text" name="lastname" formControlName="lastname" autocomplete="off" [(ngModel)]="registerUser.lastname" class="form-control" placeholder="Achternaam">
+                          </div>
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                  <i class="icon-lock"></i>
+                              </span>
+                            </div>
+                            <input type="password" name="password" formControlName="password" autocomplete="off" [(ngModel)]="registerUser.password" class="form-control" placeholder="Wachtwoord">
+                          </div>
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                  <i class="icon-lock"></i>
+                              </span>
+                            </div>
+                            <input type="password" name="password_repeat" formControlName="password_repeat" validateEqual="password" class="form-control" placeholder="Herhaal wachtwoord">
+                          </div>
+                          <div class="form-actions">
+                            <div class="row">
+                              <div class="col-12">
+                                <button type="submit" class="btn btn-green btn-block btn-raised" [disabled]="!registerUserForm.valid" [ngClass]="loading ? 'has-icon-right' : ''">
+                                  <span>Registreren</span>
+                                  <i *ngIf="loading" class="ft-loader spinner"></i>
+                                </button>
+
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div *ngIf="loginForm">
+                              <a (click)="register()">Nog geen account?</a>
+                            </div>
+                            <div *ngIf="registerForm">
+                              <a (click)="login()">Terug naar inloggen</a>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--<div class="hidden">-->
+  <!--<span #passwordResetErrorTitle>Oeps!</span>-->
+  <!--<span #passwordResetErrorMessage>Wachtwoord resetten is mislukt.</span>-->
+  <!--<span #passwordResetSuccessTitle>Gelukt!</span>-->
+  <!--<span #passwordResetSuccessMessage>Het resetten van je wachtwoord is gelukt. Je hebt een nieuw wachtwoord via je mail ontvangen.</span>-->
+<!--</div>-->

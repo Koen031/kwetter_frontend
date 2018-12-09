@@ -1,0 +1,25 @@
+/* Sidebar */
+
+body {font-family: 'Lato', sans-serif;}
+.app-sidebar:before, .off-canvas-sidebar:before,
+.app-sidebar{background-color: #232d38!important;opacity: 1!important;}
+.app-sidebar .navigation .menu-title, .off-canvas-sidebar .navigation .menu-title{color:#fff!important}
+
+.logo .logo-text{width: 100%;}
+.logo .logo-text .logo-img{width: 100%;}
+.logo img{max-width: 100%;}
+
+.app-sidebar .navigation li > a:before, .off-canvas-sidebar .navigation li > a:before{border-right-color: #009de0!important}
+
+
+/* Login */
+.kwetter-blue .card-footer,
+.kwetter-blue{background: #1c6aa8;}
+
+
+/* Global */
+input{color:#000!important}
+/*.btn-emkes{background-color:#232d38!important;color:#fff!important}*/
+/*.btn-emkes:hover,*/
+/*.btn-emkes:active{background-color:#0386be!important;}*/
+.btn{margin-bottom: 0px!important;}

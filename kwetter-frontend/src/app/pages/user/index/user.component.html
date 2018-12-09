@@ -1,0 +1,27 @@
+<section id="dashboard">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <h4 class="card-title">Gebruikers</h4>
+                      </div>
+                      <div class="col-sm-6">
+                        <a routerLink="/user/create" class="btn btn-raised btn-emkes float-sm-right">
+                          Nieuwe gebruiker
+                        </a>
+                      </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="overflow-x">
+                          <ng2-smart-table [settings]="settings" [source]="source" (delete)="deleteConfirm($event)" (edit)="confirmEdit($event)"></ng2-smart-table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

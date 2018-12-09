@@ -1,0 +1,16 @@
+<div class="card">
+    <div class="card-body">
+      <div class="px-3 py-3">
+        <strong>Timeline</strong>
+      </div>
+      <div class="px-3 py-3">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let kwetter of timeline">
+            <i>{{kwetter.date | timeAgo}}</i>
+            <p>{{kwetter.message}}</p>
+            <strong>{{kwetter.owner}}</strong>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>

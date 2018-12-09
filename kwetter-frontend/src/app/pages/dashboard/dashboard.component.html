@@ -1,0 +1,29 @@
+<section id="dashboard">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <form class="navbar-form" role="search">
+              <div class="position-relative has-icon-right">
+                <input class="form-control" placeholder="Zoeken" type="text" [(ngModel)]="filter" name="filter" (change)="search()">
+                <div class="form-control-position">
+                  <i class="ft-search"></i>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6" *ngIf="loaded">
+        <app-addkwetter [user]="this.user" (update)="kwetterAdded($event)"></app-addkwetter>
+      </div>
+      <div class="col-md-6" *ngIf="loaded">
+        <app-profile-info [user]="this.user" ></app-profile-info>
+      </div>
+      <div class="col-md-6" *ngIf="loaded">
+        <app-timeline [timeline]="this.timeline" ]></app-timeline>
+      </div>
+    </div>
+  </section>

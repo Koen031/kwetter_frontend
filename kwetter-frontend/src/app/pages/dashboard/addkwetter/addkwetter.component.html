@@ -1,0 +1,11 @@
+<div class="card">
+    <div class="card-body">
+      <div class="px-3 py-3">
+        <fieldset class="form-group">
+          <label for="placeTextarea">What's happening?</label>
+          <textarea class="form-control" id="placeTextarea" placeholder="Nieuwe kwetter" rows="3" [(ngModel)]="kwetter.message"></textarea>
+        </fieldset>
+        <a class="btn btn-raised gradient-purple-bliss white" (click)="addKwetter()">Post Kwetter</a>
+      </div>
+    </div>
+  </div>

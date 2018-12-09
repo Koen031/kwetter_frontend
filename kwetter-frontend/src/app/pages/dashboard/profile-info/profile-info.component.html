@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="card-body">
+      <div class="px-3 py-3">
+        <strong>Jouw Kwetters: {{user.kwetters.length}}</strong>
+      </div>
+      <div class="px-3 py-3">
+      <strong>Laatste Kwetter</strong>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <i>{{user.kwetters[user.kwetters.length -1].date | timeAgo}}</i>
+          <p>{{user.kwetters[user.kwetters.length -1].message}}</p>
+  
+        </li>
+      </ul>
+    </div>
+      <div class="px-3 py-3">
+        <strong>Following: {{user.following.length}}</strong>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let follow of user.following">
+            <a (click)="navigateToUser(follow)">{{follow}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="px-3 py-3">
+        <strong>Followers: {{user.followers.length}}</strong>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let follower of user.followers">
+            <a (click)="navigateToUser(follower)">{{follower}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
